@@ -13,24 +13,24 @@ import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackable;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackableDefaultListener;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackables;
 import org.firstinspires.ftc.teamcode.threads.Autonomous_Init;
-import org.firstinspires.ftc.teamcode.threads.Blue1A;
-import org.firstinspires.ftc.teamcode.threads.Blue1B;
-import org.firstinspires.ftc.teamcode.threads.Blue1C;
-import org.firstinspires.ftc.teamcode.threads.BluePark1;
+import org.firstinspires.ftc.teamcode.threads.Red2A;
+import org.firstinspires.ftc.teamcode.threads.Red2B;
+import org.firstinspires.ftc.teamcode.threads.Red2C;
+import org.firstinspires.ftc.teamcode.threads.RedPark2;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.firstinspires.ftc.teamcode.DRobotUtil.VUFORIA_KEY;
 
-@Autonomous(name="Autonomous Blue 1", group="Concept")
-public class DAutonomousBlue1 extends LinearOpMode {
+@Autonomous(name="Autonomous Red 2", group="Autonomous")
+public class DAutonomousRed2 extends LinearOpMode {
     public static final VuforiaLocalizer.CameraDirection CAMERA_CHOICE = VuforiaLocalizer.CameraDirection.BACK;
     private static final boolean PHONE_IS_PORTRAIT = true;
 
     private OpenGLMatrix lastLocation = null;
 
-    private Stack stack;
+    private DAutonomousBlue1.Stack stack;
     private boolean targetVisible;
     private float phoneXRotate = 0;
     private float phoneYRotate = 0;
@@ -53,10 +53,10 @@ public class DAutonomousBlue1 extends LinearOpMode {
 
     // Thread Variables
     public Autonomous_Init init = new Autonomous_Init();
-    public BluePark1 park = new BluePark1();
-    public Blue1A a = new Blue1A();
-    public Blue1B b = new Blue1B();
-    public Blue1C c = new Blue1C();
+    public RedPark2 park = new RedPark2();
+    public Red2A a = new Red2A();
+    public Red2B b = new Red2B();
+    public Red2C c = new Red2C();
 
     public void Initialize_Autonomous() {
         robot.Initialize_Autonomous_Robot(hardwareMap);
@@ -122,13 +122,13 @@ public class DAutonomousBlue1 extends LinearOpMode {
                 if(((VuforiaTrackableDefaultListener) trackable.getListener()).isVisible()) {
                     if(trackable.getName() == "Zero Stack") {
                         targetVisible = true;
-                        stack = Stack.ZERO;
+                        stack = DAutonomousBlue1.Stack.ZERO;
                     } else if(trackable.getName() == "One Stack") {
                         targetVisible = true;
-                        stack = Stack.ONE;
+                        stack = DAutonomousBlue1.Stack.ONE;
                     } else if(trackable.getName() == "Four Stack") {
                         targetVisible = true;
-                        stack = Stack.FOUR;
+                        stack = DAutonomousBlue1.Stack.FOUR;
                     }
                 }
             }

@@ -12,7 +12,10 @@ import org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackable;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackableDefaultListener;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackables;
-import org.firstinspires.ftc.teamcode.threads.AutonomousInit;
+import org.firstinspires.ftc.teamcode.threads.Autonomous_Init;
+import org.firstinspires.ftc.teamcode.threads.Blue2A;
+import org.firstinspires.ftc.teamcode.threads.Blue2B;
+import org.firstinspires.ftc.teamcode.threads.Blue2C;
 import org.firstinspires.ftc.teamcode.threads.BluePark2;
 
 import java.util.ArrayList;
@@ -49,8 +52,11 @@ public class DAutonomousBlue2 extends LinearOpMode {
     };
 
     // Thread Variables
-    public AutonomousInit init = new AutonomousInit();
+    public Autonomous_Init init = new Autonomous_Init();
     public BluePark2 park = new BluePark2();
+    public Blue2A a = new Blue2A();
+    public Blue2B b = new Blue2B();
+    public Blue2C c = new Blue2C();
 
     public void Initialize_Autonomous() {
         robot.Initialize_Autonomous_Robot(hardwareMap);
@@ -128,13 +134,13 @@ public class DAutonomousBlue2 extends LinearOpMode {
             }
         }
 
-        switch((Stack)stack) {
+        switch(stack) {
             case ZERO:
-                //
+                a.run();
             case ONE:
-                //
+                b.run();
             case FOUR:
-                //
+                c.run();
         }
 
         if(!targetVisible) {
