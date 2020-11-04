@@ -12,6 +12,8 @@ import org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackable;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackableDefaultListener;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackables;
+import org.firstinspires.ftc.teamcode.threads.AutonomousInit;
+import org.firstinspires.ftc.teamcode.threads.BluePark2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +21,7 @@ import java.util.List;
 import static org.firstinspires.ftc.teamcode.DRobotUtil.VUFORIA_KEY;
 
 @Autonomous(name="Autonomous Blue", group="Concept")
-public class DAutonomousBlue extends LinearOpMode {
+public class DAutonomousBlue2 extends LinearOpMode {
     public static final VuforiaLocalizer.CameraDirection CAMERA_CHOICE = VuforiaLocalizer.CameraDirection.BACK;
     private static final boolean PHONE_IS_PORTRAIT = true;
 
@@ -47,6 +49,8 @@ public class DAutonomousBlue extends LinearOpMode {
     };
 
     // Thread Variables
+    public AutonomousInit init = new AutonomousInit();
+    public BluePark2 park = new BluePark2();
 
     public void Initialize_Autonomous() {
         robot.Initialize_Autonomous_Robot(hardwareMap);
@@ -102,6 +106,7 @@ public class DAutonomousBlue extends LinearOpMode {
         waitForStart();
 
         // Move Robot To Precise Location (Use Thread)
+        init.run();
 
         sleep(200); // Figure out how long
 
@@ -120,32 +125,20 @@ public class DAutonomousBlue extends LinearOpMode {
                         stack = Stack.FOUR;
                     }
                 }
-
-                if(stack == Stack.ZERO) {
-
-                } else if(stack == Stack.ONE) {
-
-                } else if(stack == Stack.FOUR) {
-
-                } else {
-
-                }
             }
         }
 
-        switch((int) pos.y) {
-            case 0:
+        switch((Stack)stack) {
+            case ZERO:
                 //
-            case -8:
+            case ONE:
                 //
-            case -16:
+            case FOUR:
                 //
         }
 
-        if(targetVisible) {
-
-        } else {
-
+        if(!targetVisible) {
+            park.run();
         }
 
         idle();
