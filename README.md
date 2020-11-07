@@ -122,6 +122,13 @@
                                                8) Open Claw Servo: GamePad2 (Button X)
                                                9) Close Claw Servo: GamePad2 (Button Y)
                                                10) Diagonal: GamePad1 Right Stick (X-Axis/Y-Axis)
-
-                                           # Threads
-                                                1)
+                                          # Autonomous
+                                               1) Drop Wobbler
+                                                    - Wobbler Is Already Picked Up
+                                                    - Detect How Many Disks are infront
+                                                    - Drop Wobbler in corresponding target zone
+                                               2) Regular Ejection
+                                                    - Position using Automation (Behind Launch Line)
+                                                    - Shoot All 3
+                                               3) If Target Zone is C
+                                                    - Drop the Disks in lower goal
