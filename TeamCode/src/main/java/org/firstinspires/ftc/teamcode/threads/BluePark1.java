@@ -6,7 +6,7 @@ public class BluePark1 extends Thread {
     public DRobotClass robot = new DRobotClass();
 
     @Override
-    public void ru
+    public void run() {
 
     }
 }
