@@ -4,6 +4,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+import static org.firstinspires.ftc.teamcode.DRobotUtil.EJECTION_TIME;
+
 @TeleOp(name = "Basic:DTeleOp", group = "Linear Opmode")
 public class DTeleOpClass extends LinearOpMode {
 
@@ -50,6 +52,14 @@ public class DTeleOpClass extends LinearOpMode {
 
             if(gamepad2.y) {
                 robot.Close_ClawServo();
+            }
+
+            if(gamepad1.a) {
+                robot.SetEjection_High();
+            }
+
+            if(gamepad1.b) {
+                robot.SetEjection_PowerShot();
             }
 
             // Ejection Wheel

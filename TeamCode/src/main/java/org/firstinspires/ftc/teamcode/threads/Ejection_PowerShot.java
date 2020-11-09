@@ -2,9 +2,11 @@ package org.firstinspires.ftc.teamcode.threads;
 
 import org.firstinspires.ftc.teamcode.DRobotClass;
 
-public class RotateClaw extends Thread {
+public class Ejection_PowerShot extends Thread {
     public DRobotClass robot = new DRobotClass();
 
     @Override
-    public void run()
+    public void run() {
+        robot.SetEjection_PowerShot();
+    }
 }

@@ -12,11 +12,14 @@ import org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackable;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackableDefaultListener;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackables;
+import org.firstinspires.ftc.teamcode.threads.AfterARed;
+import org.firstinspires.ftc.teamcode.threads.AfterBRed;
+import org.firstinspires.ftc.teamcode.threads.AfterCRed;
 import org.firstinspires.ftc.teamcode.threads.Autonomous_Init;
+import org.firstinspires.ftc.teamcode.threads.FailureRed2;
 import org.firstinspires.ftc.teamcode.threads.Red2A;
 import org.firstinspires.ftc.teamcode.threads.Red2B;
 import org.firstinspires.ftc.teamcode.threads.Red2C;
-import org.firstinspires.ftc.teamcode.threads.RedPark2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,10 +56,13 @@ public class DAutonomousRed2 extends LinearOpMode {
 
     // Thread Variables
     public Autonomous_Init init = new Autonomous_Init();
-    public RedPark2 park = new RedPark2();
     public Red2A a = new Red2A();
     public Red2B b = new Red2B();
     public Red2C c = new Red2C();
+    public AfterARed aa = new AfterARed();
+    public AfterBRed ab = new AfterBRed();
+    public AfterCRed ac = new AfterCRed();
+    public FailureRed2 f = new FailureRed2();
 
     public void Initialize_Autonomous() {
         robot.Initialize_Autonomous_Robot(hardwareMap);
@@ -137,14 +143,17 @@ public class DAutonomousRed2 extends LinearOpMode {
         switch(stack) {
             case ZERO:
                 a.run();
+                aa.run();
             case ONE:
                 b.run();
+                ab.run();
             case FOUR:
                 c.run();
+                ac.run();
         }
 
         if(!targetVisible) {
-            park.run();
+            f.run();
         }
 
         idle();

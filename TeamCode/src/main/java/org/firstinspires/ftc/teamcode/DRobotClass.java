@@ -30,6 +30,7 @@ public class DRobotClass {
     public Servo clawServo;
     public Servo lever;
     public Servo storage_rotation;
+    public Servo ejection_rotation;
 
     // Robot Position
     public Position robotCurrentPos;
@@ -56,17 +57,7 @@ public class DRobotClass {
         clawServo = hwMap.get(Servo.class, "claw_servo");
         lever = hwMap.get(Servo.class, "lever");
         storage_rotation = hwMap.get(Servo.class, "storage_servo");
-
-        /*
-        hwMap = {
-            Motor1 --> "left_front",
-            Motor2 --> "right_front",
-            Motor3 --> "left_rear",
-            ...
-        }
-        Setting the name of the motor
-        Searching in the Hashmap for a motor that has the corresponding name
-         */
+        ejection_rotation = hwMap.get(Servo.class, "ejection_rotation");
 
         leftFront.setDirection(DcMotor.Direction.FORWARD);
         rightFront.setDirection(DcMotor.Direction.REVERSE);
@@ -96,8 +87,7 @@ public class DRobotClass {
         lever.setPosition(0.2); // Find Actual Servo Position during Testing
         clawServo.setPosition(0); // Find Actual Servo Position during Testing
         storage_rotation.setPosition(0);
-        // 360 degrees = 0;
-        // 0 degrees = 0;
+        ejection_rotation.setPosition(0);
     }
 
     public void Initialize_Autonomous_Robot(HardwareMap hwMap) {
@@ -114,6 +104,7 @@ public class DRobotClass {
         clawServo = hwMap.get(Servo.class, "claw_servo");
         lever = hwMap.get(Servo.class, "lever");
         storage_rotation = hwMap.get(Servo.class, "storage_servo");
+        ejection_rotation = hwMap.get(Servo.class, "ejection_rotation");
 
         leftFront.setDirection(DcMotor.Direction.FORWARD);
         rightFront.setDirection(DcMotor.Direction.REVERSE);
@@ -138,6 +129,7 @@ public class DRobotClass {
         lever.setPosition(0.2); // Find Actual Servo Position during Testing
         clawServo.setPosition(0); // Find Actual Servo Position during Testing
         storage_rotation.setPosition(0);
+        ejection_rotation.setPosition(0);
     }
 
     public double getClawServoPos() {
@@ -170,6 +162,18 @@ public class DRobotClass {
         storage_rotation.setPosition(0.8);
         // Sleep
         storage_rotation.setPosition(0);
+    }
+
+    public void SetEjection_High() {
+        ejection_rotation.setPosition(0.8); // Find Real Position during Testing
+    }
+
+    public void place() {
+        // Placing Disks in Bottom if we have DropZone C
+    }
+
+    public void SetEjection_PowerShot() {
+        ejection_rotation.setPosition(0.5); // Find real position during testing
     }
 
     // Rotate Claw Motor
