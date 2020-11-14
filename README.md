@@ -132,3 +132,6 @@
                                                     - Shoot All 3
                                                3) If Target Zone is C
                                                     - Drop the Disks in lower goal
+                                          # Tasks
+                                                1) AfterBlue.java --> FailureBlue1.java
+                                                2) FailureBlue2.java --> Turn_Clock_270.java
