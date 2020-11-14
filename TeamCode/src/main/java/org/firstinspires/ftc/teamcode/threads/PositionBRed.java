@@ -1,4 +1,7 @@
 package org.firstinspires.ftc.teamcode.threads;
 
-public class PositionBRed extends Thread {
+import org.firstinspires.ftc.teamcode.DRobotClass;
+
+public class PositionBRed extends Thread  public DRobotClass robot = new DRobotClass();{
+    public void run()
 }

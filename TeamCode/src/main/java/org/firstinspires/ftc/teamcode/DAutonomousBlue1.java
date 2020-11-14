@@ -26,7 +26,7 @@ import java.util.List;
 import static org.firstinspires.ftc.teamcode.DRobotUtil.VUFORIA_KEY;
 
 @Autonomous(name="Autonomous Blue 1", group="Concept")
-public class DAutonomousBlue1 extends LinearOpMode {
+public class  DAutonomousBlue1 extends LinearOpMode {
     public static final VuforiaLocalizer.CameraDirection CAMERA_CHOICE = VuforiaLocalizer.CameraDirection.BACK;
     private static final boolean PHONE_IS_PORTRAIT = true;
 
