@@ -1,4 +1,9 @@
 package org.firstinspires.ftc.teamcode.threads;
 
-public class FailureBlue2 extends Thread {
+import org.firstinspires.ftc.teamcode.DRobotClass;
+
+public class FailureBlue2 extends Thread
+        public DRobotClass robot = new DRobotClass();{
+            public void run ()
+
 }
