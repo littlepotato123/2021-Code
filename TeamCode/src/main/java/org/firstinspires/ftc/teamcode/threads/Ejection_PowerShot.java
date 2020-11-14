@@ -8,5 +8,11 @@ public class Ejection_PowerShot extends Thread {
     @Override
     public void run() {
         robot.SetEjection_PowerShot();
+        robot.Lever_Action();
+        robot.Ejection();
+        robot.Lever_Action();
+        robot.Ejection();
+        robot.Lever_Action();
+        robot.Ejection();
     }
 }

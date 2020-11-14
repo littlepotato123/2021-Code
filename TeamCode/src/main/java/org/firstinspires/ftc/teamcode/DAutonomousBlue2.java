@@ -15,7 +15,6 @@ import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackables;
 import org.firstinspires.ftc.teamcode.threads.AfterABlue;
 import org.firstinspires.ftc.teamcode.threads.AfterBBlue;
 import org.firstinspires.ftc.teamcode.threads.AfterCBlue;
-import org.firstinspires.ftc.teamcode.threads.Autonomous_Init;
 import org.firstinspires.ftc.teamcode.threads.Blue2A;
 import org.firstinspires.ftc.teamcode.threads.Blue2B;
 import org.firstinspires.ftc.teamcode.threads.Blue2C;
@@ -55,7 +54,6 @@ public class DAutonomousBlue2 extends LinearOpMode {
     };
 
     // Thread Variables
-    public Autonomous_Init init = new Autonomous_Init();
     public Blue2A a = new Blue2A();
     public FailureBlue2 f = new FailureBlue2();
     public Blue2B b = new Blue2B();
@@ -116,9 +114,6 @@ public class DAutonomousBlue2 extends LinearOpMode {
         pos.z = 0;
 
         waitForStart();
-
-        // Move Robot To Precise Location (Use Thread)
-        init.run();
 
         sleep(200); // Figure out how long
 

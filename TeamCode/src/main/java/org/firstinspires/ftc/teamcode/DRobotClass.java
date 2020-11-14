@@ -143,9 +143,10 @@ public class DRobotClass {
 
     // Push Lever and Disk Function
     public void Lever_Action() {
+        storage_rotation.setPosition(0.8);
         lever.setPosition(0.8); // Find Servo Position during Testing
-        // Sleep
         lever.setPosition(0.2); // Find Servo Position during Testing
+        storage_rotation.setPosition(0);
     }
 
     // Open Claw
@@ -158,22 +159,20 @@ public class DRobotClass {
         clawServo.setPosition(0); // Find Actual Servo Position during testing
     }
 
-    public void Rotate_Storage_Box() {
-        storage_rotation.setPosition(0.8);
-        // Sleep
-        storage_rotation.setPosition(0);
-    }
-
     public void SetEjection_High() {
         ejection_rotation.setPosition(0.8); // Find Real Position during Testing
     }
 
-    public void place() {
-        // Placing Disks in Bottom if we have DropZone C
-    }
-
     public void SetEjection_PowerShot() {
         ejection_rotation.setPosition(0.5); // Find real position during testing
+    }
+
+    public void SetEjection_Low() {
+        ejection_rotation.setPosition(0.2); // Find real position during testing
+    }
+
+    public void place() {
+        // Placing Disks in Bottom if we have DropZone C
     }
 
     // Rotate Claw Motor

@@ -9,9 +9,10 @@ public class Ejection_High extends Thread {
     public void run() {
         robot.SetEjection_High();
         robot.Lever_Action();
-        robot.SetEjection_High();
+        robot.Ejection();
         robot.Lever_Action();
-        robot.SetEjection_High();
+        robot.Ejection();
         robot.Lever_Action();
+        robot.Ejection();
     }
 }

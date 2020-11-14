@@ -15,7 +15,6 @@ import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackables;
 import org.firstinspires.ftc.teamcode.threads.AfterARed;
 import org.firstinspires.ftc.teamcode.threads.AfterBRed;
 import org.firstinspires.ftc.teamcode.threads.AfterCRed;
-import org.firstinspires.ftc.teamcode.threads.Autonomous_Init;
 import org.firstinspires.ftc.teamcode.threads.FailureRed2;
 import org.firstinspires.ftc.teamcode.threads.Red2A;
 import org.firstinspires.ftc.teamcode.threads.Red2B;
@@ -55,7 +54,6 @@ public class DAutonomousRed2 extends LinearOpMode {
     };
 
     // Thread Variables
-    public Autonomous_Init init = new Autonomous_Init();
     public Red2A a = new Red2A();
     public Red2B b = new Red2B();
     public Red2C c = new Red2C();
@@ -116,9 +114,6 @@ public class DAutonomousRed2 extends LinearOpMode {
         pos.z = 0;
 
         waitForStart();
-
-        // Move Robot To Precise Location (Use Thread)
-        init.run();
 
         sleep(200); // Figure out how long
 

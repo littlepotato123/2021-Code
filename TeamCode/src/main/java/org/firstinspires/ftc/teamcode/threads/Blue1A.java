@@ -4,9 +4,12 @@ import org.firstinspires.ftc.teamcode.DRobotClass;
 
 public class Blue1A extends Thread {
     public DRobotClass robot = new DRobotClass();
+    public Drop_Disks drop = new Drop_Disks();
 
     @Override
     public void run() {
-
+        robot.Any_Directional_Movement(90, 75);
+        robot.turnClock_Autonomous_Robot(90);
+        drop.run();
     }
 }
