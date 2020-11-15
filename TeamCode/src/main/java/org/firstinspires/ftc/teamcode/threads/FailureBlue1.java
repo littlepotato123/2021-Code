@@ -7,8 +7,6 @@ public class FailureBlue1 extends Thread {
 
     @Override
     public void run() {
-        robot.Any_Directional_Movement(90, 50);
-        robot.Any_Directional_Movement(0, 10);
-        robot.Any_Directional_Movement(90, 10);
+        robot.Any_Directional_Movement(90, 90);
     }
 }

@@ -7,6 +7,6 @@ public class AfterPark extends Thread {
 
     @Override
     public void run() {
-        robot.Any_Directional_Movement(90, 15.0);
+        robot.Any_Directional_Movement(270, 15.0);
     }
 }
