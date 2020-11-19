@@ -9,8 +9,7 @@ public class AfterARed extends Thread {
 
     @Override
     public void run() {
-        robot.turnClock_Autonomous_Robot(270);
-        robot.Any_Directional_Movement(270, 50);
+        robot.Any_Directional_Movement(154, Math.sqrt(5));
         ejection.run();
         power_shot.run();
     }

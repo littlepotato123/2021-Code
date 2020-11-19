@@ -9,8 +9,7 @@ public class AfterCBlue extends Thread {
 
     @Override
     public void run() {
-        robot.turnClock_Autonomous_Robot(90);
-        robot.Any_Directional_Movement(270, 160);
+        robot.Any_Directional_Movement(225, Math.sqrt(18));
         ejection.run();
         power_shot.run();
     }

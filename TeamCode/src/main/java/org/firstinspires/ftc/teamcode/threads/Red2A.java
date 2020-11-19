@@ -7,9 +7,6 @@ public class Red2A extends Thread {
 
     @Override
     public void run() {
-        robot.Any_Directional_Movement(90, 90);
-        robot.Any_Directional_Movement(0, 50);
-        robot.turnClock_Autonomous_Robot(270);
         robot.Open_ClawServo();
     }
 }

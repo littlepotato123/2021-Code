@@ -7,7 +7,6 @@ public class Red1C extends Thread {
 
     @Override
     public void run() {
-        robot.Any_Directional_Movement(90, 150);
         robot.Open_ClawServo();
     }
 }

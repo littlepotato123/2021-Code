@@ -1,5 +1,4 @@
 package org.firstinspires.ftc.teamcode.threads;
-
 import org.firstinspires.ftc.teamcode.DRobotClass;
 
 public class AfterCRed extends Thread {
@@ -9,8 +8,7 @@ public class AfterCRed extends Thread {
 
     @Override
     public void run() {
-        robot.turnClock_Autonomous_Robot(270);
-        robot.Any_Directional_Movement(270, 50);
+        robot.Any_Directional_Movement(315, Math.sqrt(18));
         ejection.run();
         power_shot.run();
     }

@@ -7,9 +7,7 @@ public class Blue2A extends Thread {
 
     @Override
     public void run() {
-        robot.Any_Directional_Movement(90, 55);
-        robot.Any_Directional_Movement(180, 25);
-        robot.turnClock_Autonomous_Robot(90);
+        robot.Any_Directional_Movement(117, Math.sqrt(45));
         robot.Open_ClawServo();
     }
 }
