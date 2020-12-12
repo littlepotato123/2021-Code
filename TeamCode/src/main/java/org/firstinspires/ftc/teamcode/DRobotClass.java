@@ -21,7 +21,6 @@ public class DRobotClass {
     public DcMotor leftRear;
     public DcMotor rightRear;
     public DcMotor intakeMotor;
-    public DcMotor intakeMotor1;
     public DcMotor intakeRods;
     public DcMotor ejectionWheel;
     public DcMotor clawMotor;
@@ -52,7 +51,6 @@ public class DRobotClass {
         intakeRods = hwMap.get(DcMotor.class, "intake_rods");
         ejectionWheel = hwMap.get(DcMotor.class, "ejection_wheel");
         clawMotor = hwMap.get(DcMotor.class, "claw_motor");
-        intakeMotor1 = hwMap.get(DcMotor.class, "intake_motor_1");
 
         clawServo = hwMap.get(Servo.class, "claw_servo");
         lever = hwMap.get(Servo.class, "lever");
@@ -64,7 +62,6 @@ public class DRobotClass {
         leftRear.setDirection(DcMotor.Direction.FORWARD);
         rightRear.setDirection(DcMotor.Direction.REVERSE);
         intakeMotor.setDirection(DcMotor.Direction.FORWARD);
-        intakeMotor1.setDirection(DcMotor.Direction.REVERSE);
         ejectionWheel.setDirection(DcMotor.Direction.REVERSE);
         intakeRods.setDirection(DcMotor.Direction.FORWARD);
         clawMotor.setDirection(DcMotor.Direction.FORWARD);
@@ -80,7 +77,6 @@ public class DRobotClass {
         intakeRods.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         ejectionWheel.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         clawMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        intakeMotor1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         // Encoder keeps track of how many times a motor rotates, and can be used for telling a motor to go to a certain postion
 
@@ -99,7 +95,6 @@ public class DRobotClass {
         intakeRods = hwMap.get(DcMotor.class, "intake_rods");
         ejectionWheel = hwMap.get(DcMotor.class, "ejection_wheel");
         clawMotor = hwMap.get(DcMotor.class, "claw_motor");
-        intakeMotor1 = hwMap.get(DcMotor.class, "intake_motor_1");
 
         clawServo = hwMap.get(Servo.class, "claw_servo");
         lever = hwMap.get(Servo.class, "lever");
@@ -111,7 +106,6 @@ public class DRobotClass {
         leftRear.setDirection(DcMotor.Direction.FORWARD);
         rightRear.setDirection(DcMotor.Direction.REVERSE);
         intakeMotor.setDirection(DcMotor.Direction.FORWARD);
-        intakeMotor1.setDirection(DcMotor.Direction.REVERSE);
         ejectionWheel.setDirection(DcMotor.Direction.REVERSE);
         intakeRods.setDirection(DcMotor.Direction.REVERSE);
         clawMotor.setDirection(DcMotor.Direction.FORWARD);
@@ -124,22 +118,12 @@ public class DRobotClass {
         intakeRods.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         ejectionWheel.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         clawMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        intakeMotor1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         lever.setPosition(0.2); // Find Actual Servo Position during Testing
         clawServo.setPosition(0); // Find Actual Servo Position during Testing
         storage_rotation.setPosition(0);
         ejection_rotation.setPosition(0);
     }
-
-    public double getClawServoPos() {
-        return (double)(clawServo.getPosition());
-    }
-
-    public double getLeverServoPos() {
-        return (double)(lever.getPosition());
-    }
-    // Same as getRobotPos();
 
     // Push Lever and Disk Function
     public void Lever_Action() {
@@ -169,10 +153,6 @@ public class DRobotClass {
 
     public void SetEjection_Low() {
         ejection_rotation.setPosition(0.2); // Find real position during testing
-    }
-
-    public void place() {
-        // Placing Disks in Bottom if we have DropZone C
     }
 
     // Rotate Claw Motor
@@ -207,28 +187,22 @@ public class DRobotClass {
     public void Intake() {
         int intakeencoder = 0, newintakeencoder = 0;
         int rodencoder = 0, newrodencoder = 0;
-        int motor1coder = 0, newmotor1coder = 0;
         intakeencoder = intakeMotor.getCurrentPosition();
         rodencoder = intakeRods.getCurrentPosition();
-        motor1coder = intakeMotor1.getCurrentPosition();
 
         double counts_perinch = COUNTS_PER_MOTOR_REV_LIFT/(2*3.1415926*MOTOR_RADIUS);
         newintakeencoder = intakeencoder + (int)(counts_perinch * INTAKE_TIME);
         newrodencoder = rodencoder + (int)(counts_perinch * INTAKE_TIME);
-        newmotor1coder = motor1coder + (int)(counts_perinch * INTAKE_TIME);
 
         intakeMotor.setTargetPosition(newintakeencoder);
         intakeRods.setTargetPosition(newrodencoder);
-        intakeMotor1.setTargetPosition(newmotor1coder);
 
         intakeMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         intakeRods.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        intakeMotor1.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
         intakeMotor.setPower(MOTOR_SPEED);
         intakeRods.setPower(MOTOR_SPEED);
-        intakeMotor1.setPower(MOTOR_SPEED);
-    } // Maybe make the intake rods a different function and change
+    }
 
     // Autonomous Set Power
     public void Set_Autonomous_MotorPower(double leftFrontPower, double rightFrontPower, double leftBackPower, double rightBackPower) {
@@ -244,11 +218,6 @@ public class DRobotClass {
         leftRear.setPower(leftBackPower);
         rightFront.setPower(rightFrontPower);
         rightRear.setPower(rightBackPower);
-    }
-
-    // Stop TeleOp Robot
-    public void Stop_TeleOp_Mode() {
-        Set_TeleOp_MotorPower(0, 0, 0, 0);
     }
 
     // Turning

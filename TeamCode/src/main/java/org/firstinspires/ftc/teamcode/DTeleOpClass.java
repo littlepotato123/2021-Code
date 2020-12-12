@@ -42,10 +42,6 @@ public class DTeleOpClass extends LinearOpMode {
                 robot.Lever_Action();
             }
 
-            if(gamepad2.b) {
-                robot.Rotate_Storage_Box();
-            }
-
             if(gamepad2.x) {
                 robot.Open_ClawServo();
             }
@@ -62,20 +58,16 @@ public class DTeleOpClass extends LinearOpMode {
                 robot.SetEjection_PowerShot();
             }
 
-            // Ejection Wheel
             while(ejection_trigger > 0.2) {
                 robot.Ejection();
-                // Sleep for Time Intervals?
             }
 
-            // Intake
             while(intake_trigger > 0.2) {
                 robot.Intake();
-                // Sleep for Time Intervals?
             }
 
             while(direction_x > 0 || direction_y > 0) {
-                robot.Any_Directional_Movement(calculateAngle(direction_x, direction_y), 1); // Figure Out Distance When Testing
+                robot.Any_Directional_Movement(calculateAngle(direction_x, direction_y), 1);
             }
 
             while(rotation_x > 0 || rotation_y > 0) {
